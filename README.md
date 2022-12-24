@@ -38,13 +38,6 @@ JavaScript
 </li>
 </ol>
 
-<style>
-li{
-font-weight: bold;
-font-size: 15px;
-}
-</style>
-
 <hr>
 <h2> Created by</h2>
 <h3>Oleksandr Lisnytskyi</h3>

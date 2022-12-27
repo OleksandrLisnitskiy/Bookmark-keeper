@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% block content %}
+    {% load static %}
+<div class="container">
+{% for group in groups %}
+
+    <a href="{% url "tasks" group.id %}">
+    <div class="box">
+            <h3 class="group_name">{{ group.group_name}}</h3>
+            <hr class="line">
+        <div class="task_list">
+            <ul>
+
+                {% for task in tasks %}
+                    {% if task.group.id == group.id %}
+
+                    <li>{{ task.task }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    </a>
+
+ {% endfor %}
+
+</div>
+<button class="add_button"></button>
+
+
+{% endblock %}

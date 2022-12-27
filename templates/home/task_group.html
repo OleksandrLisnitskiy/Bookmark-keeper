@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+    <div>
+    <ul>
+    {% for task in tasks %}
+    <li>
+    {{ task.task }}
+    </li>
+    {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

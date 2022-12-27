@@ -22,9 +22,6 @@ Set deadlines to finish all tasks in time.
 Django
 </li>
 <li>
-FastAPI
-</li>
-<li>
 Docker
 </li>
 <li>

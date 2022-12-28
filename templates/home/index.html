@@ -25,7 +25,24 @@
  {% endfor %}
 
 </div>
-<button class="add_button"></button>
+<div id="popup_group">
+<!-- Popup Div Starts Here -->
+    <div id="popupContact">
+    <!-- Add Group Form -->
+        <form action="#" id="form" method="post" name="form">
+            <img id="close" src="{% static "home/close.png" %}" onclick ="div_hide()" alt="close">
+            <h2>Add Group</h2>
+            <hr>
+            {% csrf_token %}
+            {{ form }}
+{#            <input id="add_group" name="add_group" placeholder="Group name" type="text">#}
 
+            <input type="submit" id="submit" value="Add">
+        </form>
+    </div>
+<!-- Popup Div Ends Here -->
+</div>
+<!-- Display Popup Button -->
+<button id="popup" onclick="div_show()"></button>
 
 {% endblock %}

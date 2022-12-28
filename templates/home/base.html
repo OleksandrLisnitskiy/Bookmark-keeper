@@ -29,6 +29,14 @@
                     <span class="links_name">Home</span>
                 </a>
             </li>
+            {% for group in groups %}
+                <li>
+                    <a href="{% url 'tasks' group.id%}">
+                        <i class='bx bx-task'></i>
+                        <span class="links_name">{{ group.group_name }}</span>
+                    </a>
+            </li>
+            {% endfor %}
             <li>
                 <a href="{% url 'settings' %}">
                     <i class='bx bx-cog'></i>
@@ -69,25 +77,15 @@
         btn2.onclick = function () {
             sidebar.classList.toggle("active")
         }
-              let modalBtns = [...document.querySelectorAll(".button")];
-      modalBtns.forEach(function (btn) {
-        btn.onclick = function () {
-          let modal = btn.getAttribute("data-modal");
-          document.getElementById(modal).style.display = "block";
-        };
-      });
-      let closeBtns = [...document.querySelectorAll(".close")];
-      closeBtns.forEach(function (btn) {
-        btn.onclick = function () {
-          let modal = btn.closest(".modal");
-          modal.style.display = "none";
-        };
-      });
-      window.onclick = function (event) {
-        if (event.target.className === "modal") {
-          event.target.style.display = "none";
-        }
-      };
+
+    //Function To Display Popup
+    function div_show() {
+    document.getElementById('popup_group').style.display = "block";
+    }
+    //Function to Hide Popup
+    function div_hide(){
+    document.getElementById('popup_group').style.display = "none";
+    }
     </script>
 </body>
 </html>

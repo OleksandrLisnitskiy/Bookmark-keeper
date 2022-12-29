@@ -1,13 +1,69 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
-    <div>
-    <ul>
-    {% for task in tasks %}
-    <li>
-    {{ task.task }}
-    </li>
-    {% endfor %}
-    </ul>
+    <div class="task_container">
+        <h2 class="group_name_2">
+            {{ group_name }}
+        </h2>
+        <hr class="group_divider_2">
+        <div class="box_2">
+            <ul>
+            {% for task in tasks %}
+            <li class="tasks">
+            <span class="task">
+            <i class='bx bx-task'></i>
+                {% if task.deadline %}
+                    {{ task.deadline|date:"D m Y"}}: {{ task.task }}
+                {% else %}
+                    {{ task.task }}
+
+                {% endif %}
+
+            </span>
+                <button class="delete" id="popup" onclick="div_show_2()" >Delete</button>
+
+        <div id="popup_group_2">
+<!-- Popup Div Starts Here -->
+            <div id="popupContact">
+            <!-- Add Group Form -->
+                <form action="#" id="form" method="post" name="form">
+                    {% csrf_token %}
+                    <img id="close" src="{% static "home/close.png" %}" onclick ="div_hide_2()" alt="close">
+                    <h3>Delete task</h3>
+                    <p>Are you sure you want to delete the task?</p>
+                    <input type="hidden" name="delete-item" value="{{ task.id }}">
+                    <input type="submit" id="submit_2" value="Delete">
+                </form>
+            </div>
+<!-- Popup Div Ends Here -->
+        </div>
+            <button class="edit">Edit</button>
+
+
+                <hr class="task_divider">
+            </li>
+            {% endfor %}
+
+            </ul>
+        </div>
+        <div id="popup_group">
+<!-- Popup Div Starts Here -->
+        <div id="popupContact">
+        <!-- Add Group Form -->
+            <form action="#" id="form" method="post" name="form">
+                <img id="close" src="{% static "home/close.png" %}" onclick ="div_hide()" alt="close">
+                <h2>Add Task</h2>
+
+                {% csrf_token %}
+                {{ form }}
+
+                <input type="submit" id="submit" value="Add">
+            </form>
+        </div>
+<!-- Popup Div Ends Here -->
+</div>
+<!-- Display Popup Button -->
+<button id="popup" class="popup_tasks" onclick="div_show()"></button>
     </div>
+
 {% endblock %}

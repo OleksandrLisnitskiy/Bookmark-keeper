@@ -32,7 +32,7 @@
         <form action="#" id="form" method="post" name="form">
             <img id="close" src="{% static "home/close.png" %}" onclick ="div_hide()" alt="close">
             <h2>Add Group</h2>
-            <hr>
+
             {% csrf_token %}
             {{ form }}
 {#            <input id="add_group" name="add_group" placeholder="Group name" type="text">#}
@@ -43,6 +43,6 @@
 <!-- Popup Div Ends Here -->
 </div>
 <!-- Display Popup Button -->
-<button id="popup" onclick="div_show()"></button>
+<button id="popup" class="popup_tasks" onclick="div_show()"></button>
 
 {% endblock %}

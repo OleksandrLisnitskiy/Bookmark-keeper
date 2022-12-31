@@ -21,4 +21,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('setings/', views.settings, name='settings'),
     path('tasks/<int:group_id>', views.tasks, name='tasks'),
+    path('edit_task/<int:group_id>/<int:task_id>', views.edit_task, name='edit_task'),
+    path('add_task/<int:group_id>', views.add_task, name='add_task'),
+    path('edit_group/<int:group_id>', views.edit_group, name='edit_group'),
 ]

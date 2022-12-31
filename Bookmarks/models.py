@@ -24,9 +24,9 @@ class Tasks(models.Model):
     is_finished = models.BooleanField(default=False, help_text="This field indicates if task is finished")
 
     class Meta:
-        ordering = ['creation_date']
+        ordering = ['deadline', 'creation_date']
         verbose_name = "Task"
 
     def __str__(self):
-        return str(self.group.group_name) + ": " + self.task[:30] + "..."
+        return str(self.group.group_name) + ":" + str(self.id) + ": " + self.task[:30] + "..."
 

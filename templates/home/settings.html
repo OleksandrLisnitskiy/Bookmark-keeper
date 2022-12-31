@@ -1,5 +1,25 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block content %}
+    <div class="container">
+    <h1>SETTINGS</h1>
+        <hr>
+        <form action="#">
+            {% csrf_token %}
+            <label for="fonts_selector">Choose a font-style: </label>
+                <select name="fonts" id="fonts_selector">
+                    <option value="times_new_romans">Times New Romans</option>
+                    <option value="arial">Arial</option>
+                    <option value="calibri">Calibri</option>
+                </select>
+            <label for="font_size">Choose the font size: </label>
+            <select name="font-size" id="font_size">
+                <option value="12">12</option>
+                <option value="14">14</option>
+                <option value="16">16</option>
+            </select>
+            <input type="submit" id="save_fonts" value="Save">
+        </form>
+    </div>
 
 {% endblock %}

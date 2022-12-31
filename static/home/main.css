@@ -202,11 +202,10 @@ body {
   position: absolute;
   width: 60px;
   height: 30px;
-  /*display: block;*/
   background: #d9d9d9;
   border-radius: 100px;
   cursor: pointer;
-  box-shadow: inset 0px 5px 15px rgba(0,0,0,0.3), inset 0px -5px 15px rgba(255,255,255,0.3);
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.3), inset 0 -5px 15px rgba(255,255,255,0.3);
 }
 .sidebar .change_theme label:after{
   content: '';
@@ -259,6 +258,7 @@ body {
 }
 
 img#close {
+    z-index: 100;
     position:absolute;
     right: 14px;
     top: 14px;
@@ -299,7 +299,7 @@ form {
     border-top:1px solid #ccc
 }
 
-#popup_group_2 {
+#popup_group_2, #popup_group_4 {
     width:100%;
     height:100%;
     top:0;
@@ -311,19 +311,20 @@ form {
     z-index: 100;
 }
 
-#popup_group_2 #popupContact {
+#popup_group_2 #popupContact, #popup_group_4 #popupContact {
     margin-left: 40%;
     margin-top: 15%;
     font-family:'Raleway',sans-serif;
 }
-#popup_group_2 #popupContact form h3 {
+#popup_group_2 #popupContact form h3, #popup_group_4 #popupContact form h3 {
+    opacity: 0.8;
     padding:20px 35px;
     margin:-10px -50px -20px;
     text-align:center;
     border-radius:10px 10px 0 0
 }
 
-#submit_2 {
+#submit_2, #submit_4 {
     text-decoration:none;
     width:50%;
     opacity: 0.7;
@@ -340,13 +341,67 @@ form {
     transition: 0.3s ease;
 }
 
-#submit_2:hover {
+#submit_2:hover, #submit_4:hover {
 
     opacity: 0.85;
     background-color: rgba(255, 89, 89);
     transform: scale(1.05);
 }
 
+#popup_group_3, #popup_group_5 {
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display: none;
+    position:fixed;
+    background-color:rgb(49, 49, 49, 0.7);
+    overflow:auto;
+    z-index: 100;
+}
+
+#popup_group_3 #popupContact, #popup_group_5 #popupContact {
+    margin-left: 40%;
+    margin-top: 15%;
+    font-family:'Raleway',sans-serif;
+
+}
+#popup_group_3 #popupContact form h3, #popup_group_5 #popupContact form h3  {
+    opacity: 0.8;
+    padding:20px 35px;
+    margin:-10px -50px -20px;
+    text-align:center;
+    border-radius:10px 10px 0 0
+}
+
+#popup_group_3 #popupContact form {
+    width: 500px;
+    height: 300px;
+}
+
+#submit_3, #submit_5 {
+    text-decoration:none;
+    width:50%;
+    opacity: 0.7;
+    display:block;
+    background-color: rgba(246, 207, 105);
+    color:#ffffff;
+    margin: 15px auto;
+    border:none;
+    padding:10px 0;
+    font-size:20px;
+    cursor:pointer;
+    font-family: 'Arial', sans-serif;
+    border-radius:5px;
+    transition: 0.3s ease;
+}
+
+#submit_3:hover, #submit_5:hover {
+
+    opacity: 0.85;
+    background-color: rgb(246, 207, 105);
+    transform: scale(1.05);
+}
 
 #group_name {
 
@@ -354,7 +409,6 @@ form {
     padding:10px;
     margin: 5px auto;
     border-radius: 5px;
-    /*border:1px solid #ccc;*/
 
     border: none;
     border-bottom: 1px solid #ccc;
@@ -365,7 +419,7 @@ form {
 #group_name:focus {
     outline: none;
 }
-#submit {
+#submit , #save_fonts{
     text-decoration:none;
     width:50%;
     text-align:center;
@@ -415,7 +469,7 @@ form {
 
 .group_name_2 {
     padding: 20px 20px 0 40px;
-    margin-bottom: 0;
+    margin-bottom: -25px;
     text-align: left;
     font-weight: 400;
     font-size: 35px;
@@ -458,14 +512,14 @@ form {
 
 .task_container .group_divider {
     padding-right: 10px;
-    width: 90%;
-    margin: 0 auto auto 10px;
+
 }
 .task_container .box_2 {
-    width: 80%;
+    width: 90%;
     position: relative;
 }
-.task_container .box_2 button{
+.task_container .box_2 button, .task_container .group_name_header button{
+
     float: right;
     display: inline-block;
     margin: auto 10px auto 0;
@@ -476,10 +530,11 @@ form {
 
 }
 
-.task_container .box_2 button:hover{
+.task_container .box_2 button:hover, .task_container .group_name_header button:hover{
     transform: scale(1.05);
 }
 .delete {
+    box-shadow: 3px 3px 4px rgba(255, 89, 89, 0.7);
     font-family: 'Arial', sans-serif;
     font-size: 15px;
     color: #ffffff;
@@ -494,7 +549,7 @@ form {
 }
 
 .edit {
-    /*font-weight: bold;*/
+    box-shadow: 3px 3px 4px rgba(246, 207, 105, 0.7);
     font-size: 15px;
     color: rgb(255, 255, 255);
     opacity: 0.7;
@@ -506,4 +561,46 @@ form {
 
     opacity: 0.9;
     background-color: rgb(246, 207, 105);
+}
+
+.task_container .group_name_header {
+    width: 90%;
+    margin: 0 auto auto 10px;
+}
+
+#edit_task, #task {
+    font-size: 17px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background-color: #f4f4f2;
+    margin: 20px auto 20px auto;
+    width: 90%;
+    min-width: 50%;
+    max-width: 90%;
+    min-height: 20px;
+    height: 50px;
+    max-height: 70px;
+}
+
+#id_edit_deadline, #id_deadline {
+    background-color: #f4f4f2;
+    opacity: 0.8;
+    font-size: 17px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    margin: auto auto 30px auto;
+    width: 140px;
+}
+
+#edit_group_name {
+    margin: 20px auto 10px 30px;
+    background-color: #f4f4f2;
+    opacity: 0.8;
+    font-size: 17px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+
 }
